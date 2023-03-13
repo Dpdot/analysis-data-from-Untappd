@@ -1,0 +1,276 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+licz_grupy_dane[1]
+```
+
+
+```{r}
+#1 Juicy or Hazy Imperial or Double India Pale Ale
+basket_rules_1 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[1], default ="lhs"))
+
+rules_dt_1 <- DATAFRAME(basket_rules_1)
+```
+
+```{r}
+#2 British-Style Imperial Stout
+basket_rules_2 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[2], default ="lhs"))
+
+rules_dt_2 <- DATAFRAME(basket_rules_2)
+```
+
+```{r}
+#3 European Origin Lager Styles
+basket_rules_3 <- apriori(basket_market ,
+                        parameter = list(sup = 0.005, conf = 0.45, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[3], default ="lhs"))
+
+rules_dt_3 <- DATAFRAME(basket_rules_3)
+```
+
+```{r}
+#4 American-Style India Pale Ale
+basket_rules_4 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.35, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[4], default ="lhs"))
+
+rules_dt_4 <- DATAFRAME(basket_rules_4)
+```
+
+```{r}
+#5 Other Origin Ale Styles
+basket_rules_5 <- apriori(basket_market ,
+                        parameter = list(sup = 0.0022, conf = 0.4, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[5], default ="lhs"))
+
+rules_dt_5 <- DATAFRAME(basket_rules_5)
+```
+
+```{r}
+#6 North American Origin Ale Styles
+basket_rules_6 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[6], default ="lhs"))
+
+rules_dt_6 <- DATAFRAME(basket_rules_6)
+```
+
+```{r}
+#7 American-Style Fruited Sour Ale
+basket_rules_7 <- apriori(basket_market ,
+                        parameter = list(sup = 0.008, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[7], default ="lhs"))
+
+rules_dt_7 <- DATAFRAME(basket_rules_7)
+```
+
+```{r}
+#8 Juicy or Hazy India Pale Ale
+basket_rules_8 <- apriori(basket_market ,
+                        parameter = list(sup = 0.008, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[8], default ="lhs"))
+
+rules_dt_8 <- DATAFRAME(basket_rules_8)
+```
+
+```{r}
+#9 American-Style Sour Ale
+basket_rules_9 <- apriori(basket_market ,
+                        parameter = list(sup = 0.004, conf = 0.33, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[9], default ="lhs"))
+
+rules_dt_9 <- DATAFRAME(basket_rules_9)
+```
+
+```{r}
+#10 German Origin Ale Styles
+basket_rules_10 <- apriori(basket_market ,
+                        parameter = list(sup = 0.005, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[10], default ="lhs"))
+
+rules_dt_10 <- DATAFRAME(basket_rules_10)
+```
+
+```{r}
+#11 All Origin Hybrid/Mixed Lagers or Ale
+basket_rules_11 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[11], default ="lhs"))
+
+rules_dt_11 <- DATAFRAME(basket_rules_11)
+```
+
+```{r}
+#12 Sweet Stout or Cream Stout
+basket_rules_12 <- apriori(basket_market ,
+                        parameter = list(sup = 0.007, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[12], default ="lhs"))
+
+rules_dt_12 <- DATAFRAME(basket_rules_12)
+```
+
+```{r}
+#13 American-Style India Pale Lager
+basket_rules_13 <- apriori(basket_market ,
+                        parameter = list(sup = 0.002, conf = 0.4, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[13], default ="lhs"))
+
+rules_dt_13 <- DATAFRAME(basket_rules_13)
+```
+
+```{r}
+#14 American-Style Pale Ale
+basket_rules_14 <- apriori(basket_market ,
+                        parameter = list(sup = 0.004, conf = 0.33, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[14], default ="lhs"))
+
+rules_dt_14 <- DATAFRAME(basket_rules_14)
+```
+
+```{r}
+#15 American-Style Imperial or Double India Pale Ale
+basket_rules_15 <- apriori(basket_market ,
+                        parameter = list(sup = 0.005, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[15], default ="lhs"))
+
+rules_dt_15 <- DATAFRAME(basket_rules_15)
+```
+
+```{r}
+#16 International-Style Pilsener
+basket_rules_16 <- apriori(basket_market ,
+                        parameter = list(sup = 0.002, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[16], default ="lhs"))
+
+rules_dt_16 <- DATAFRAME(basket_rules_16)
+```
+
+```{r}
+#17 Cider
+basket_rules_17 <- apriori(basket_market ,
+                        parameter = list(sup = 0.001, conf = 0.3, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[17], default ="lhs"))
+
+rules_dt_17 <- DATAFRAME(basket_rules_17)
+```
+
+```{r}
+#18 OK Belgian and French Origin Ale Styles
+basket_rules_18 <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[18], default ="lhs"))
+
+rules_dt_18 <- DATAFRAME(basket_rules_18)
+```
+
+```{r}
+#19 OK "Non-Alcohol Malt Beverage"
+basket_rules_19 <- apriori(basket_market ,
+                        parameter = list(sup = 0.001, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[19], default ="lhs"))
+
+rules_dt_19 <- DATAFRAME(basket_rules_19)
+```
+
+```{r}
+#20 OK British Origin Ale Styles
+basket_rules_20 <- apriori(basket_market ,
+                        parameter = list(sup = 0.007, conf = 0.5, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[20], default ="lhs"))
+
+rules_dt_20 <- DATAFRAME(basket_rules_20)
+```
+
+```{r}
+#21 OK Other Lager Styles
+basket_rules_21 <- apriori(basket_market ,
+                        parameter = list(sup = 0.0007, conf = 0.2, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[21], default ="lhs"))
+
+rules_dt_21 <- DATAFRAME(basket_rules_21)
+```
+
+```{r}
+#22 OK Irish Origin Ale Styles
+basket_rules_22 <- apriori(basket_market ,
+                        parameter = list(sup = 0.0014, conf = 0.4, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[22], default ="lhs"))
+
+rules_dt_22 <- DATAFRAME(basket_rules_22)
+```
+
+```{r}
+#23 Baltic-Style Porter
+basket_rules_23 <- apriori(basket_market ,
+                        parameter = list(sup = 0.004, conf = 0.33, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[23], default ="lhs"))
+
+rules_dt_23 <- DATAFRAME(basket_rules_23)
+```
+
+```{r}
+#24 Mead
+basket_rules_24 <- apriori(basket_market ,
+                        parameter = list(sup = 0.0007, conf = 0.3, target="rules", minlen = 2),
+                        appearance = list(rhs =licz_grupy_dane[24], default ="lhs"))
+
+rules_dt_24 <- DATAFRAME(basket_rules_24)
+```
+
+
+```{r}
+top_1 <- rules_dt_1 %>% top_n(1,confidence)
+top_1 <- rules_dt_2 %>% top_n(1,confidence)
+top_3 <- rules_dt_3 %>% top_n(1,confidence)
+top_4 <- rules_dt_4 %>% top_n(1,confidence)
+top_5 <- rules_dt_5 %>% top_n(1,confidence)
+top_6 <- rules_dt_6 %>% top_n(1,confidence)
+top_7 <- rules_dt_7 %>% top_n(1,confidence)
+top_8 <- rules_dt_8 %>% top_n(1,confidence)
+top_9 <- rules_dt_9 %>% top_n(1,confidence)
+top_10 <- rules_dt_10 %>% top_n(1,confidence)
+top_11 <- rules_dt_11 %>% top_n(1,confidence)
+top_12 <- rules_dt_12 %>% top_n(1,confidence)
+top_13 <- rules_dt_13 %>% top_n(1,confidence)
+top_14 <- rules_dt_14 %>% top_n(1,confidence)
+top_15 <- rules_dt_15 %>% top_n(1,confidence)
+top_16 <- rules_dt_16 %>% top_n(1,confidence)
+top_17 <- rules_dt_17 %>% top_n(1,confidence)
+top_18 <- rules_dt_18 %>% top_n(1,confidence)
+top_19 <- rules_dt_19 %>% top_n(1,confidence)
+top_20 <- rules_dt_20 %>% top_n(1,confidence)
+top_21 <- rules_dt_21 %>% top_n(1,confidence)
+top_22 <- rules_dt_22 %>% top_n(1,confidence)
+top_23 <- rules_dt_23 %>% top_n(1,confidence)
+top_24 <- rules_dt_24 %>% top_n(1,confidence)
+```
+
+
+```{r}
+top_df <- rbind(top_1,top_2,top_3,top_4,top_5,top_6,top_7,top_8,top_9,top_10,top_11,top_12,top_13,top_14,top_15,top_16,top_17,top_18,top_19,top_20,top_21,top_22,top_23,top_24)
+```
+
+```{r}
+total_top_rules <- c(basket_rules_1[1],basket_rules_2[1],basket_rules_3[1],basket_rules_4[1],basket_rules_5[1],basket_rules_6[1],basket_rules_7[1],basket_rules_8[1],basket_rules_9[1],basket_rules_10[1],basket_rules_11[1],basket_rules_12[1],basket_rules_13[1],basket_rules_14[1],basket_rules_15[1],basket_rules_16[1],basket_rules_17[1],basket_rules_18[1],basket_rules_19[1],basket_rules_20[1],basket_rules_21[1],basket_rules_22[1],basket_rules_23[1],basket_rules_24[1])
+```
+
+```{r}
+plot(total_top_rules, method ="graph", engine ="htmlwidget")
+
+ruleExplorer(total_top_rules)
+```
+```{r}
+
+```
+

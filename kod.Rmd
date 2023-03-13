@@ -1,0 +1,304 @@
+
+```{r}
+
+library(httr)
+library(rjson)
+library(stringr)
+library(tidyverse)
+library(lubridate)
+
+klucz <- "&client_id=BEE5D99036C1A685A993F03F2112D91372339C48&client_secret=923B3926CB8482D5AF8CCC7661929E129DA4FAC0"
+
+untappdAPI <- function(adres) {
+  adres_url <- paste(adres,klucz, sep = "")
+  
+  wez <- GET(adres_url) 
+  
+  fromJSON(rawToChar(wez$content)) 
+}
+
+jakoData <- function(untappddata) {
+  
+  data_rozdziel <- str_split(untappddata, " ")[[1]]
+
+  data_format <- paste(data_rozdziel[4],data_rozdziel[3],data_rozdziel[2],data_rozdziel[5])
+
+  ymd_hms(data_format)
+  
+}
+```
+
+
+```{r}
+serie <- vector()
+
+grupy <- vector()
+```
+
+
+```{r}
+#tablica_piw_full <- data.frame()
+
+for(j in 1:80) {
+
+start <- "https://api.untappd.com/v4"
+warunki = "?start_date=2020-10-01&end_date=2021-09-30"
+
+
+user_1 <- profile_UT[j]
+
+adres_url <- paste(start,"/user/beers/",user_1,warunki, sep = "")
+
+daty <- vector()
+
+style <- vector()
+
+dodaj <- 0
+
+lista_tablic <- list()
+
+while(adres_url != "") {
+  
+  dane_user_1 <- untappdAPI(adres_url)
+  
+  if(length(dane_user_1$response$beers$items) > 0) {
+  
+    for(i in 1:length(dane_user_1$response$beers$items)){
+  
+      daty[i + dodaj] <- jakoData(dane_user_1$response$beers$items[[i]]$recent_created_at)
+  
+      style[i + dodaj] <- dane_user_1$response$beers$items[[i]]$beer$beer_style
+    }
+  
+    adres_url <- dane_user_1$response$pagination$next_url
+    dodaj = dodaj + 25
+  } else {adres_url <- ""}
+}
+
+
+
+tablica_piw <- data.frame(daty, style)
+
+
+tablica_piw$daty <- as.POSIXct(daty, origin = "1970-01-01", tz = "GMT")
+
+tablica_piw$user <- user_1
+
+tablica_piw_full <- rbind(tablica_piw_full,tablica_piw)
+}
+#tablica_piw_g <- merge(tablica_piw,mapowanie_styli, by.x = 'style', by.y = 'style_lista') %>% arrange(desc(daty))
+
+
+```
+
+#Przejscie do slownik styli
+
+```{r}
+serie <- c()
+grupy <- c()
+
+for(i in 1:length(profile_UT)) {
+  
+  user_act <- profile_UT[i]
+  
+  skrocona_tabela <- tabela_piw_map_final %>% filter(user == user_act)
+  
+  
+
+  numer <- 1
+  skrocona_tabela$seria[1] <- paste(user_act,"_",numer, sep = "")
+
+  for(j in 1:(length(skrocona_tabela$seria)-1)) {
+  
+
+  if (as.duration(skrocona_tabela$daty[j] - skrocona_tabela$daty[j+1]) < 21600) {
+    skrocona_tabela$seria[j+1] <- paste(user_act,"_",numer, sep = "")
+  } else {
+    numer = numer + 1
+    skrocona_tabela$seria[j+1] <- paste(user_act,"_",numer, sep = "")
+    }
+  
+  }
+
+
+
+  serie <- c(serie, skrocona_tabela$seria)
+
+  grupy <- c(grupy, skrocona_tabela$grupa)
+
+  print(paste("Iteracja:",i," user:",user_act," dlugosc tabeli:",length(skrocona_tabela$grupa)," dlugosc wektora:",length(grupy)))
+
+}
+
+
+```
+
+```{r}
+serie_1 <- serie
+
+grupy_1 <- grupy
+
+dane_transakcyjne <- data.frame(serie_1, grupy_1)
+
+dane_transakcyjne_dis <- distinct(dane_transakcyjne)
+
+dane_transakcyjne_dis$serie_1 <- factor(dane_transakcyjne_dis$serie_1)
+
+lista_danych = split(dane_transakcyjne_dis$grupy_1,
+                  dane_transakcyjne_dis$serie_1)
+
+```
+
+```{r}
+basket_market <- as(lista_danych, "transactions")
+
+inspect(head(basket_market))
+
+summary(basket_market)
+
+image(basket_market[1:50])
+
+itemFrequencyPlot(basket_market,
+                  topN = 5,
+                  main ='Stosunek wystąpień grup styli do liczby transakcji',
+                  col = rainbow(5),
+                  cex.main = 1,
+                  cex.names = 0.7,
+                  type = 'relative',
+                  horiz = TRUE)
+
+```
+
+```{r}
+czestosc_grup_1 <- apriori(basket_market ,
+                        parameter = list(supp = 0.01, maxlen = 1, target="frequent itemsets"))
+
+czestosc_grup_2 <- apriori(basket_market ,
+                        parameter = list(supp = 0.04, minlen = 2, target="frequent itemsets"))
+```
+
+```{r}
+inspect(sort(czestosc_grup_1, by="support"))
+
+inspect(sort(czestosc_grup_2, by="support"))
+```
+
+```{r}
+#Ogólna postać
+basket_rules <- apriori(basket_market ,
+                        parameter = list(sup = 0.01, conf = 0.5, target="rules", minlen = 2))
+```
+
+```{r}
+basket_rules <- sort(basket_rules, by ="lift")
+```
+
+
+```{r}
+inspect(basket_rules) 
+
+inspectDT(basket_rules)
+```
+
+```{r}
+pal <- choose_palette()
+
+plot(basket_rules, col = pal(2), main = "Wizualizacja reguł") 
+
+rules_dt <- DATAFRAME(basket_rules)
+
+ggplot(rules_dt, aes(support,confidence)) +
+  geom_point(size = 3, aes(colour = lift)) +
+  ggplot2::scale_color_gradient(low = "pink", high = "dark red") +
+  theme_minimal()
+
+```
+
+```{r}
+rules_html <- plot(basket_rules, method ="graph", engine ="htmlwidget")
+rules_html
+```
+
+```{r}
+ggplot(rules_dt, aes(rhs,lhs)) +
+  geom_point(aes(colour = support, size = confidence)) +
+  ggplot2::scale_color_gradient(low = "light blue", high = "dark blue") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30, vjust = 1, hjust=1, size = 8),axis.text.y = element_text(size = 8), axis.title.x=element_blank(), axis.title.y=element_blank())
+
+plot(basket_rules, method ="paracoord", col = c("light blue","blue"))
+```
+
+```{r}
+ruleExplorer(basket_rules)
+```
+
+
+
+```{r}
+basket_rules_len2 <- apriori(basket_market ,
+                        parameter = list(sup = 0.002, conf = 0.3, target="rules", maxlen = 2))
+
+ruleExplorer(basket_rules_len2)
+```
+
+```{r}
+sum(is.redundant(basket_rules)) # Czy jakieś reguły są powtórzone ∃X0 ⊂ X conf(X0 ⇒ Y ) ≥ conf(X ⇒ Y ).
+
+#rules[!is.redundant(rules)]
+
+inspect(basket_rules) 
+```
+
+
+```{r}
+plot(basket_rules, col = 'red', cex = 1 ,main = "Wizualizacja regul")
+
+rules <- basket_rules
+rules_dt <- DATAFRAME(rules)
+
+```
+
+
+```{r}
+#Total
+basket_rules_total <- apriori(basket_market ,
+                        parameter = list(sup = 0.004, conf = 0.33, target="rules", minlen = 2))
+
+sum(is.redundant(basket_rules_total))
+
+basket_rules_total <- basket_rules_total[!is.redundant(basket_rules_total)]
+```
+
+```{r}
+basket_rules_total <- sort(basket_rules_total, by ="lift")
+```
+
+```{r}
+rules_dt_total <- DATAFRAME(basket_rules_total)
+rules_dt_total$length <- as.character(size(basket_rules_total))
+
+p <- ggplot(rules_dt_total, aes(support,confidence)) +
+  geom_point(size = 1.5, aes(colour = length), alpha=0.5) +
+  scale_color_brewer(palette="Dark2") +
+  theme_minimal() +
+  theme(legend.position = "left")
+
+ggExtra::ggMarginal(p, type = "histogram", fill = "light gray", colour = "light gray")
+
+```
+
+
+```{r}
+ruleExplorer(basket_rules_total)
+```
+
+```{r}
+licz_grupy_dane[licz_grupy_dane %notin% unique(unlist(as(lhs(basket_rules_total),"list")))]
+
+licz_grupy_dane[licz_grupy_dane %notin% unique(unlist(as(rhs(basket_rules_total),"list")))]
+```
+```{r}
+dane_transakcyjne %>% group_by(grupy_1) %>% count()
+```
+

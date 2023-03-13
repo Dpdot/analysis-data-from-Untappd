@@ -1,0 +1,231 @@
+"","tablica_piw_full.style","n"
+"1","Adambier",4
+"2","Altbier",11
+"3","American Wild Ale",3
+"4","Australian Sparkling Ale",1
+"5","Barleywine - American",95
+"6","Barleywine - English",177
+"7","Barleywine - Other",205
+"8","Belgian Blonde",65
+"9","Belgian Dubbel",77
+"10","Belgian Enkel / Patersbier",6
+"11","Belgian Quadrupel",200
+"12","Belgian Strong Dark Ale",70
+"13","Belgian Strong Golden Ale",55
+"14","Belgian Tripel",90
+"15","Biere de Champagne / Biere Brut",6
+"16","Black & Tan",2
+"17","Blonde Ale",70
+"18","Bock - Doppelbock",102
+"19","Bock - Eisbock",38
+"20","Bock - Eisbock (Traditional)",5
+"21","Bock - Hell / Maibock / Lentebock",45
+"22","Bock - Single / Traditional",91
+"23","Bock - Weizenbock",30
+"24","Bock - Weizendoppelbock",12
+"25","Brett Beer",48
+"26","Brown Ale - American",16
+"27","Brown Ale - Belgian",7
+"28","Brown Ale - English",13
+"29","Brown Ale - Imperial / Double",55
+"30","Brown Ale - Other",6
+"31","California Common",9
+"32","Chilli / Chile Beer",1
+"33","Cider - Dry",89
+"34","Cider - Graff",55
+"35","Cider - Herbed / Spiced / Hopped",16
+"36","Cider - Ice / Applewine",30
+"37","Cider - Other Fruit",51
+"38","Cider - Perry",17
+"39","Cider - Rosé",11
+"40","Cider - Sweet",11
+"41","Cider - Traditional",3
+"42","Cider - Traditional / Apfelwein",47
+"43","Cream Ale",7
+"44","Dampfbier",3
+"45","Dark Ale",23
+"46","English Bitter",35
+"47","Extra Special / Strong Bitter",38
+"48","Farmhouse Ale - Biere de Coupage",3
+"49","Farmhouse Ale - Biere de Garde",35
+"50","Farmhouse Ale - Grisette",13
+"51","Farmhouse Ale - Other",17
+"52","Farmhouse Ale - Sahti",23
+"53","Farmhouse Ale - Saison",493
+"54","Festbier",57
+"55","Freeze-Distilled Beer",160
+"56","Fruit Beer",527
+"57","Gluten-Free",28
+"58","Golden Ale",36
+"59","Grape Ale - Italian",39
+"60","Grape Ale - Other",53
+"61","Grätzer / Grodziskie",10
+"62","Grisette",1
+"63","Grodziskie / Grätzer",165
+"64","Gruit / Ancient Herbed Ale",11
+"65","Hard Ginger Beer",6
+"66","Hard Kombucha",4
+"67","Hard Seltzer",24
+"68","Hefeweizen",43
+"69","Historical Beer - Other",25
+"70","Honey Beer",83
+"71","IPA - American",2133
+"72","IPA - Belgian",69
+"73","IPA - Black / Cascadian Dark Ale",217
+"74","IPA - Brett",49
+"75","IPA - Brut",29
+"76","IPA - English",53
+"77","IPA - Farmhouse",134
+"78","IPA - Imperial / Double",1492
+"79","IPA - Imperial / Double Black",288
+"80","IPA - Imperial / Double Milkshake",33
+"81","IPA - Imperial / Double New England",365
+"82","IPA - Imperial / Double New England / Hazy",2687
+"83","IPA - International",534
+"84","IPA - Milkshake",150
+"85","IPA - New England",320
+"86","IPA - New England / Hazy",2751
+"87","IPA - New Zealand",44
+"88","IPA - Quadruple",158
+"89","IPA - Red",39
+"90","IPA - Rye",58
+"91","IPA - Session",719
+"92","IPA - Session / India Session Ale",73
+"93","IPA - Sour",521
+"94","IPA - Triple",178
+"95","IPA - Triple New England",116
+"96","IPA - Triple New England / Hazy",735
+"97","IPA - White",242
+"98","Kellerbier / Zwickelbier",83
+"99","Koji / Ginjo Beer",1
+"100","Kölsch",57
+"101","Kvass",15
+"102","Lager - Amber",36
+"103","Lager - American",99
+"104","Lager - American Amber / Red",29
+"105","Lager - American Light",14
+"106","Lager - Dark",148
+"107","Lager - Dortmunder / Export",108
+"108","Lager - Euro Pale",14
+"109","Lager - Helles",192
+"110","Lager - IPL (India Pale Lager)",99
+"111","Lager - Japanese Rice",35
+"112","Lager - Munich Dunkel",30
+"113","Lager - Pale",791
+"114","Lager - Red",12
+"115","Lager - Strong",93
+"116","Lager - Vienna",32
+"117","Lager - Winter",16
+"118","Lambic - Faro",7
+"119","Lambic - Framboise",69
+"120","Lambic - Fruit",330
+"121","Lambic - Gueuze",272
+"122","Lambic - Kriek",97
+"123","Lambic - Traditional",97
+"124","Lichtenhainer",3
+"125","Malt Beer",5
+"126","Malt Liquor",1
+"127","Märzen",73
+"128","Mead - Acerglyn / Maple Wine",1
+"129","Mead - Bochet",6
+"130","Mead - Braggot",46
+"131","Mead - Cyser",14
+"132","Mead - Melomel",99
+"133","Mead - Metheglin",13
+"134","Mead - Other",54
+"135","Mead - Pyment",2
+"136","Mead - Traditional",6
+"137","Mild - Dark",3
+"138","Mild - Light",1
+"139","Mild - Other",6
+"140","Non-Alcoholic Beer",839
+"141","Old Ale",26
+"142","Other",11
+"143","Pale Ale - American",861
+"144","Pale Ale - Australian",57
+"145","Pale Ale - Belgian",50
+"146","Pale Ale - English",65
+"147","Pale Ale - International",166
+"148","Pale Ale - Milkshake",21
+"149","Pale Ale - New England",47
+"150","Pale Ale - New England / Hazy",340
+"151","Pale Ale - New Zealand",39
+"152","Pilsner - Czech",561
+"153","Pilsner - German",324
+"154","Pilsner - Imperial / Double",10
+"155","Pilsner - Italian",31
+"156","Pilsner - Other",874
+"157","Porter - American",25
+"158","Porter - Baltic",506
+"159","Porter - Coffee",25
+"160","Porter - English",28
+"161","Porter - Imperial / Double",201
+"162","Porter - Imperial / Double Baltic",668
+"163","Porter - Imperial / Double Coffee",35
+"164","Porter - Other",137
+"165","Pumpkin / Yam Beer",76
+"166","Rauchbier",98
+"167","Red Ale - American Amber / Red",28
+"168","Red Ale - Imperial / Double",6
+"169","Red Ale - Irish",26
+"170","Red Ale - Other",24
+"171","Roggenbier",18
+"172","Rye Beer",54
+"173","Rye Wine",12
+"174","Schwarzbier",25
+"175","Scotch Ale / Wee Heavy",54
+"176","Scottish Ale",7
+"177","Scottish Export Ale",2
+"178","Shandy / Radler",159
+"179","Smoked Beer",140
+"180","Sour - Berliner Weisse",225
+"181","Sour - Flanders Oud Bruin",26
+"182","Sour - Flanders Red Ale",88
+"183","Sour - Fruited",2307
+"184","Sour - Fruited Berliner Weisse",444
+"185","Sour - Fruited Gose",452
+"186","Sour - Gose",13
+"187","Sour - Other",342
+"188","Sour - Other Gose",4
+"189","Sour - Smoothie / Pastry",474
+"190","Sour - Traditional Gose",67
+"191","Specialty Grain",11
+"192","Spiced / Herbed Beer",142
+"193","Steinbier",6
+"194","Stout - American",56
+"195","Stout - Coffee",157
+"196","Stout - English",7
+"197","Stout - Foreign / Export",219
+"198","Stout - Imperial / Double",1395
+"199","Stout - Imperial / Double Coffee",342
+"200","Stout - Imperial / Double Milk",286
+"201","Stout - Imperial / Double Oatmeal",73
+"202","Stout - Imperial / Double Pastry",1084
+"203","Stout - Imperial / Double White",54
+"204","Stout - Irish Dry",88
+"205","Stout - Milk / Sweet",258
+"206","Stout - Oatmeal",210
+"207","Stout - Other",114
+"208","Stout - Oyster",2
+"209","Stout - Pastry",139
+"210","Stout - Russian Imperial",762
+"211","Strong Ale - American",15
+"212","Strong Ale - English",6
+"213","Strong Ale - Other",60
+"214","Table Beer",30
+"215","Traditional Ale",14
+"216","Wheat Beer - American Pale Wheat",173
+"217","Wheat Beer - Dunkelweizen",28
+"218","Wheat Beer - Hefeweizen",556
+"219","Wheat Beer - Hefeweizen Light / Leicht",5
+"220","Wheat Beer - Hopfenweisse",11
+"221","Wheat Beer - Kristallweizen",7
+"222","Wheat Beer - Other",73
+"223","Wheat Beer - Wheat Wine",51
+"224","Wheat Beer - Witbier",15
+"225","Wheat Beer - Witbier / Blanche",268
+"226","Wild Ale - American",76
+"227","Wild Ale - Other",169
+"228","Winter Ale",29
+"229","Winter Warmer",12
+"230","Zoigl",8
